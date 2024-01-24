@@ -1,4 +1,5 @@
-﻿#include <clocale>
+﻿#include "pch.h"
+#include <clocale>
 #include "iostream"
 
 using namespace std;
