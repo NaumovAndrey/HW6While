@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include <clocale>
 #include "iostream"
+#include <cmath>
 
 using namespace std;
 
@@ -11,5 +12,29 @@ using namespace std;
 Если пользователь внёс большую сумму, чем требуется для погашения, выведите сообщение о том,
 какой у него остаток на счету после такой операции. Обеспечьте контроль ввода.*/
 void task3() {
+	setlocale(LC_ALL, "Rus");
 
+	int debt;
+	string name;
+
+	cout << "Введите имя должника и его долг: ";
+	cin >> name >> debt;
+	int temp;
+
+	cout << "Пошёл требовать долг с " << name << "!!" << endl;
+
+	while (true) {
+		cout << "За Вами Должок!! " << name << " " << debt << " рублей" << endl << "Какую сумму вносите: ";
+		cin >> temp;
+		debt -= temp;
+
+		if (debt == 0) {
+			cout << "Долг оплачен!";
+			break;
+		}
+		else if (debt < 0) {
+			cout << "У Вас переплата " << abs(debt) << "рублей" << ", но мы злые колектора, переплату неотдадим";
+			break;
+		}
+	}
 }
